@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.syp.databinding1.Words" />
+
+        <variable
+            name="user"
+            type="com.example.syp.databinding1.User" />
+
+        <variable
+            name="presenter"
+            type="com.example.syp.databinding1.Presenter" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.syp.databinding1.MainActivity">
+
+        <TextView
+            android:id="@+id/tvOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}" />
+        <!-- android:text="@{Words.WORDS}"-->
+
+
+        <!--<Button-->
+        <!--android:id="@+id/btnClickMe"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="@{presenter::btnClickMeClickedHandler}"-->
+        <!--android:text="Click me" />-->
+
+        <Button
+            android:id="@+id/btnClickMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.btnClicked(user.name)}"
+            android:text="Click me" />
+
+    </LinearLayout>
+</layout>
